@@ -19,14 +19,14 @@ login_manager.login_view = 'login'
 login_manager.init_app(app)
 
 
-# ✅ User Model
+# User Model
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
 
 
-# ✅ Transaction Model
+# Transaction Model
 class Transaction(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.String(100))
@@ -36,19 +36,18 @@ class Transaction(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 
-# ✅ Create Tables Automatically
-@app.before_first_request
-def create_tables():
+# Create Tables
+with app.app_context():
     db.create_all()
 
 
-# ✅ Load User Function
+# User Loader
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
 
-# ✅ Home/Dashboard Route
+# Dashboard Route
 @app.route('/')
 @login_required
 def index():
@@ -70,7 +69,7 @@ def index():
     return render_template('dashboard.html', transactions=transactions, total=total, chart=chart)
 
 
-# ✅ Register Route
+# Register Route
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -94,7 +93,7 @@ def register():
     return render_template('register.html')
 
 
-# ✅ Login Route
+# Login Route
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -113,7 +112,7 @@ def login():
     return render_template('login.html')
 
 
-# ✅ Logout Route
+# Logout Route
 @app.route('/logout')
 @login_required
 def logout():
@@ -121,7 +120,7 @@ def logout():
     return redirect(url_for('login'))
 
 
-# ✅ Add Transaction Route
+# Add Transaction
 @app.route('/add', methods=['POST'])
 @login_required
 def add():
@@ -144,7 +143,7 @@ def add():
     return redirect(url_for('index'))
 
 
-# ✅ Upload CSV Route
+# Upload CSV
 @app.route('/upload', methods=['POST'])
 @login_required
 def upload():
