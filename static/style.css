@@ -1,96 +1,64 @@
-body.bg {
-    background: linear-gradient(to right, #141e30, #243b55); /* Deep blue gradient */
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-.form-box {
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 30px;
-    margin: 8% auto;
-    width: 330px;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+body {
+    font-family: Arial;
+    background-color: #f2f2f2;
     text-align: center;
 }
 
-.form-box input {
-    width: 90%;
-    padding: 10px;
-    margin: 8px 0;
-    border: 1px solid gray;
-    border-radius: 8px;
-    outline: none;
+h1, h2, h3 {
+    color: #333;
 }
 
-.form-box button {
-    width: 95%;
+.form-container {
+    background: white;
+    padding: 20px;
+    margin: 80px auto;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #aaa;
+}
+
+input, button {
     padding: 10px;
+    margin: 8px;
+    width: 90%;
+}
+
+button {
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.form-box button:hover {
+button:hover {
     background-color: #45a049;
 }
 
-.header {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 2px solid #ccc;
-}
-
-.logout-btn {
-    background-color: crimson;
-    color: white;
-    padding: 7px 14px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.logout-btn:hover {
-    background-color: darkred;
-}
-
-.table-section {
-    margin: 30px;
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
-}
-
 table {
-    width: 100%;
+    margin: 20px auto;
     border-collapse: collapse;
-}
-
-table, th, td {
-    border: 1px solid gray;
+    width: 80%;
 }
 
 th, td {
-    padding: 10px;
-    text-align: center;
+    border: 1px solid #ddd;
+    padding: 8px;
 }
 
-.form-section {
-    margin: 30px;
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.header {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+}
+
+.header a {
+    color: white;
+    float: right;
+    text-decoration: none;
+    padding: 0 20px;
 }
